@@ -17,13 +17,16 @@ export const ChargingWindowForm = ({onResultReceived}: ChargingWindowFormProps) 
             zodResolver(chargingWindowFormSchema),
     });
 
-    const {mutate} = useChargingWindow();
+    const {mutate, isPending} = useChargingWindow();
 
     const onFormSubmit = (data: FormData) => {
         mutate(data.hours, {
             onSuccess: (result: ChargingWindowResponse) => {
                 onResultReceived?.(result);
-            }
+            },
+            onError: (error) => {
+                console.error("Charging window error:", error);
+            },
         });
     };
 
@@ -41,6 +44,7 @@ export const ChargingWindowForm = ({onResultReceived}: ChargingWindowFormProps) 
             <Button
                 type="submit"
                 variant="contained"
+                disabled={isPending}
             >
                 Calculate
             </Button>

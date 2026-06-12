@@ -1,6 +1,6 @@
-import { useMutation } from '@tanstack/react-query';
+import {useMutation} from '@tanstack/react-query';
 
-import { getChargingWindow } from '../api/energyAPI';
+import {getChargingWindow} from '../api/energyAPI';
 
 export const useChargingWindow =
     () =>
