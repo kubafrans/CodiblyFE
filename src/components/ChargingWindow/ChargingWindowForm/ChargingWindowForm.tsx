@@ -2,15 +2,10 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {useForm} from "react-hook-form";
 import {chargingWindowFormSchema} from "./ChargingWindowForm.schema.ts";
 import {Button} from "@mui/material";
-import {z} from "zod";
 import {useChargingWindow} from "../../../hooks/useChargingWindow.tsx";
 import {StyledForm, StyledTextField} from "../../../styles/styles.ts";
-
-type FormData = z.infer<typeof chargingWindowFormSchema>;
-
-interface ChargingWindowFormProps {
-    onResultReceived?: (result: any) => void;
-}
+import type {ChargingWindowResponse, FormData} from "../../../types/chargingTypes.ts";
+import type {ChargingWindowFormProps} from "../../../types/inerfaces.ts";
 
 export const ChargingWindowForm = ({onResultReceived}: ChargingWindowFormProps) => {
     const {
@@ -26,7 +21,7 @@ export const ChargingWindowForm = ({onResultReceived}: ChargingWindowFormProps) 
 
     const onFormSubmit = (data: FormData) => {
         mutate(data.hours, {
-            onSuccess: (result) => {
+            onSuccess: (result: ChargingWindowResponse) => {
                 onResultReceived?.(result);
             }
         });

@@ -1,14 +1,10 @@
 import {Card, CardContent, Typography,} from '@mui/material';
 
-import type {EnergyMixDay} from '../../types/energyTypes';
-
 import {EnergyMixPieChart} from './EnergyMixPieChart';
+import type {EnergyMixCardProps} from "../../types/inerfaces.ts";
 
-interface Props {
-    day: EnergyMixDay;
-}
 
-export const EnergyMixCard = ({day}: Props) => {
+export const EnergyMixCard = ({day}: EnergyMixCardProps) => {
     if (!day) {
         return null;
     }

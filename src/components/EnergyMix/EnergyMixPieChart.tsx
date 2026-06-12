@@ -1,16 +1,8 @@
 import {Pie, PieChart, Tooltip,} from 'recharts';
 import {COLORS} from "../../consts/colors.ts";
+import type {EnergyMixPieChartProps} from "../../types/inerfaces.ts";
 
-interface Props {
-    data: {
-        name: string;
-        value: number;
-    }[];
-}
-
-export const EnergyMixPieChart = ({data}: Props) => {
-
-    console.log(data)
+export const EnergyMixPieChart = ({data}: EnergyMixPieChartProps) => {
     const coloredData = data.map((item, index) => ({
         ...item,
         fill: COLORS[index],
@@ -24,7 +16,6 @@ export const EnergyMixPieChart = ({data}: Props) => {
                 outerRadius={95}
                 innerRadius={45}
             />
-
             <Tooltip/>
         </PieChart>
     );
