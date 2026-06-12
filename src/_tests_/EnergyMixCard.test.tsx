@@ -5,6 +5,8 @@ import '@testing-library/jest-dom';
 it('renders energy data', () => {
     render(
         <EnergyMixCard
+            //eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
             day={{
                 date: '2026-06-12',
                 cleanEnergyPercentage: 50,
