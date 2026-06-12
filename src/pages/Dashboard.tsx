@@ -5,7 +5,7 @@ import {ChargingWindowForm} from "../components/ChargingWindow/ChargingWindowFor
 import {ChargingWindowResult} from "../components/ChargingWindow/ChargingWindowResult.tsx";
 import {useState} from "react";
 import type {ChargingWindowResponse} from "../types/chargingTypes.ts";
-import {CenteredContainer, StyledContainer} from "../styles/styles.ts";
+import {CenteredContainer, StyledContainer, StyledStack} from "../styles/styles.ts";
 import {NoDataView} from "../components/ErrorComponents/NoDataView.tsx";
 
 export const Dashboard = () => {
@@ -35,12 +35,11 @@ export const Dashboard = () => {
                     </Box>
                 ))}
             </Grid>
-            <Box sx={{mt: 4}}>
+            <Typography variant="body1" component="div">Charging window (provide number 1-6):</Typography>
+            <StyledStack>
                 <ChargingWindowForm onResultReceived={setChargingResult}/>
-                <Box sx={{mt: 2}}>
-                    <ChargingWindowResult result={chargingResult}/>
-                </Box>
-            </Box>
+            </StyledStack>
+            <ChargingWindowResult result={chargingResult}/>
         </StyledContainer>
     );
 };

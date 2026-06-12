@@ -1,9 +1,10 @@
 import {zodResolver} from "@hookform/resolvers/zod";
 import {useForm} from "react-hook-form";
 import {chargingWindowFormSchema} from "./ChargingWindowForm.schema.ts";
-import {Button, TextField} from "@mui/material";
+import {Button} from "@mui/material";
 import {z} from "zod";
 import {useChargingWindow} from "../../../hooks/useChargingWindow.tsx";
+import {StyledForm, StyledTextField} from "../../../styles/styles.ts";
 
 type FormData = z.infer<typeof chargingWindowFormSchema>;
 
@@ -32,8 +33,8 @@ export const ChargingWindowForm = ({onResultReceived}: ChargingWindowFormProps) 
     };
 
     return (
-        <form onSubmit={handleSubmit(onFormSubmit)}>
-            <TextField
+        <StyledForm onSubmit={handleSubmit(onFormSubmit)}>
+            <StyledTextField
                 type="number"
                 label="Hours"
                 error={!!errors.hours}
@@ -48,6 +49,6 @@ export const ChargingWindowForm = ({onResultReceived}: ChargingWindowFormProps) 
             >
                 Calculate
             </Button>
-        </form>
+        </StyledForm>
     )
 }

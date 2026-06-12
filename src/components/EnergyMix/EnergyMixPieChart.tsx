@@ -9,9 +9,11 @@ interface Props {
 }
 
 export const EnergyMixPieChart = ({data}: Props) => {
+
+    console.log(data)
     const coloredData = data.map((item, index) => ({
         ...item,
-        fill: COLORS[index % COLORS.length],
+        fill: COLORS[index],
     }));
 
     return (

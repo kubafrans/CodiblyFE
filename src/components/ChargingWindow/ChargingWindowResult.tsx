@@ -1,5 +1,7 @@
-import {Card, CardContent, Typography} from "@mui/material";
+import {Typography} from "@mui/material";
 import type {ChargingWindowResponse} from "../../types/chargingTypes.ts";
+import {StyledBox} from "../../styles/styles.ts";
+import {formatDate} from "../../helpers/formatDate.ts";
 
 interface ChargingWindowResultProps {
     result?: ChargingWindowResponse | null;
@@ -10,18 +12,17 @@ export const ChargingWindowResult = ({result}: ChargingWindowResultProps) => {
         return null;
 
     return (
-        <Card>
-            <CardContent>
-                <Typography>
-                    Start: {result.start}
-                </Typography>
-                <Typography>
-                    End: {result.end}
-                </Typography>
-                <Typography>
-                    Average: {result.averageCleanEnergyPercentage}%
-                </Typography>
-            </CardContent>
-        </Card>
+        <StyledBox>
+            Best time for charging:
+            <Typography>
+                Start: {formatDate(result.start)}
+            </Typography>
+            <Typography>
+                End: {formatDate(result.end)}
+            </Typography>
+            <Typography>
+                Average: {result.averageCleanEnergyPercentage}%
+            </Typography>
+        </StyledBox>
     );
 };
