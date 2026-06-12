@@ -1,10 +1,12 @@
 import {useEnergyMix} from "../hooks/useEnergyMix.tsx";
-import {Box, Container, Grid} from "@mui/material";
-import {EnergyMixCard} from "./EnergyMix/EnergyMixCard.tsx";
-import {ChargingWindowForm} from "./ChargingWindow/ChargingWindowForm/ChargingWindowForm.tsx";
-import {ChargingWindowResult} from "./ChargingWindow/ChargingWindowResult.tsx";
+import {Box, CircularProgress, Grid, Typography} from "@mui/material";
+import {EnergyMixCard} from "../components/EnergyMix/EnergyMixCard.tsx";
+import {ChargingWindowForm} from "../components/ChargingWindow/ChargingWindowForm/ChargingWindowForm.tsx";
+import {ChargingWindowResult} from "../components/ChargingWindow/ChargingWindowResult.tsx";
 import {useState} from "react";
 import type {ChargingWindowResponse} from "../types/chargingTypes.ts";
+import {CenteredContainer, StyledContainer} from "../styles/styles.ts";
+import {NoDataView} from "../components/ErrorComponents/NoDataView.tsx";
 
 export const Dashboard = () => {
 
@@ -16,13 +18,16 @@ export const Dashboard = () => {
     const [chargingResult, setChargingResult] = useState<ChargingWindowResponse | null>(null);
 
     if (isLoading)
-        return <>Loading...</>;
+        return <CenteredContainer>
+            <CircularProgress color="secondary"/>
+        </CenteredContainer>
 
     if (!data)
-        return <>Loading...</>;
+        return <NoDataView/>;
 
     return (
-        <Container>
+        <StyledContainer>
+            <Typography variant="body1" component="div">Energy charts:</Typography>
             <Grid container spacing={2}>
                 {data.map(day => (
                     <Box key={day.date}>
@@ -36,6 +41,6 @@ export const Dashboard = () => {
                     <ChargingWindowResult result={chargingResult}/>
                 </Box>
             </Box>
-        </Container>
+        </StyledContainer>
     );
 };

@@ -1,4 +1,4 @@
-import {Dashboard} from "./components/Dashboard.tsx";
+import {Dashboard} from "./pages/Dashboard.tsx";
 
 function App() {
 

@@ -1,4 +1,5 @@
-import {Cell, Pie, PieChart, Tooltip,} from 'recharts';
+import {Pie, PieChart, Tooltip,} from 'recharts';
+import {COLORS} from "../../consts/colors.ts";
 
 interface Props {
     data: {
@@ -7,41 +8,20 @@ interface Props {
     }[];
 }
 
-const COLORS = [
-    '#1976d2',
-    '#2e7d32',
-    '#ed6c02',
-    '#9c27b0',
-    '#d32f2f',
-    '#0288d1',
-    '#689f38',
-];
-
 export const EnergyMixPieChart = ({data}: Props) => {
+    const coloredData = data.map((item, index) => ({
+        ...item,
+        fill: COLORS[index % COLORS.length],
+    }));
+
     return (
-        <PieChart
-            width={300}
-            height={250}
-        >
+        <PieChart width={300} height={250}>
             <Pie
-                data={data}
+                data={coloredData}
                 dataKey="value"
-                outerRadius={90}
-            >
-                {data.map(
-                    (_, index) => (
-                        <Cell
-                            key={index}
-                            fill={
-                                COLORS[
-                                index %
-                                COLORS.length
-                                    ]
-                            }
-                        />
-                    ),
-                )}
-            </Pie>
+                outerRadius={95}
+                innerRadius={45}
+            />
 
             <Tooltip/>
         </PieChart>

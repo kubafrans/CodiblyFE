@@ -12,7 +12,6 @@ export const EnergyMixCard = ({day}: Props) => {
     if (!day) {
         return null;
     }
-    console.log(day)
 
     const chartData =
         Object.entries(day.energySources)

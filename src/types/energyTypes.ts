@@ -5,5 +5,5 @@ export interface EnergyMixDay {
     cleanEnergyPercentage: number;
     energySources: Record<string, number>;
 
-    map(arg0: (day: never) => JSX.Element): import("react").ReactNode;
+    map(arg0: (day: EnergyMixDay) => JSX.Element): import("react").ReactNode;
 }
