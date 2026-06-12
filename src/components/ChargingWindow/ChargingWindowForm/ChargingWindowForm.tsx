@@ -1,11 +1,11 @@
 import {zodResolver} from "@hookform/resolvers/zod";
 import {useForm} from "react-hook-form";
-import {chargingWindowFormSchema} from "./ChargingWindowForm.schema.ts";
+import {chargingWindowFormSchema} from "./ChargingWindowForm.schema";
 import {Button} from "@mui/material";
-import {useChargingWindow} from "../../../hooks/useChargingWindow.tsx";
-import {StyledForm, StyledTextField} from "../../../styles/styles.ts";
-import type {ChargingWindowResponse, FormData} from "../../../types/chargingTypes.ts";
-import type {ChargingWindowFormProps} from "../../../types/inerfaces.ts";
+import {useChargingWindow} from "../../../hooks/useChargingWindow";
+import {StyledForm, StyledTextField} from "../../../styles/styles";
+import type {ChargingWindowResponse, FormData} from "../../../types/chargingTypes";
+import type {ChargingWindowFormProps} from "../../../types/inerfaces";
 
 export const ChargingWindowForm = ({onResultReceived}: ChargingWindowFormProps) => {
     const {

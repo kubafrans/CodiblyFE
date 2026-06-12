@@ -1,6 +1,6 @@
 import {Pie, PieChart, Tooltip,} from 'recharts';
-import {COLORS} from "../../consts/colors.ts";
-import type {EnergyMixPieChartProps} from "../../types/inerfaces.ts";
+import {COLORS} from "../../consts/colors";
+import type {EnergyMixPieChartProps} from "../../types/inerfaces";
 
 export const EnergyMixPieChart = ({data}: EnergyMixPieChartProps) => {
     const coloredData = data.map((item, index) => ({

@@ -1,4 +1,4 @@
-import {CenteredContainer} from "../../styles/styles.ts";
+import {CenteredContainer} from "../../styles/styles";
 import {Typography} from "@mui/material";
 
 export const NoDataView = () => {

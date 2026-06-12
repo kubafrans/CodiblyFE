@@ -1,12 +1,13 @@
 import {Card, CardContent, Typography,} from '@mui/material';
 
 import {EnergyMixPieChart} from './EnergyMixPieChart';
-import type {EnergyMixCardProps} from "../../types/inerfaces.ts";
+import type {EnergyMixCardProps} from "../../types/inerfaces";
+import {NoDataView} from "../ErrorComponents/NoDataView";
 
 
 export const EnergyMixCard = ({day}: EnergyMixCardProps) => {
     if (!day) {
-        return null;
+        return <NoDataView/>;
     }
 
     const chartData =
