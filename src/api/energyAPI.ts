@@ -1,4 +1,5 @@
 import axios from 'axios';
+import type {EnergyMixDay} from "../types/energyTypes.ts";
 
 export const api = axios.create({
     baseURL:
@@ -6,9 +7,12 @@ export const api = axios.create({
 });
 
 export const getEnergyMix =
-    async () => {
+    async (): Promise<EnergyMixDay | null> => {
         const response =
             await api.get('/energy/mix');
+
+        if (!response.data)
+            return null;
 
         return response.data;
     };

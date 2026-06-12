@@ -1,10 +1,12 @@
+import {Dashboard} from "./components/Dashboard.tsx";
 
 function App() {
 
-  return (
-    <>
-    </>
-  )
+    return (
+        <>
+            <Dashboard/>
+        </>
+    )
 }
 
 export default App
