@@ -3,7 +3,7 @@ import type {EnergyMixDay} from "../types/energyTypes.ts";
 
 export const api = axios.create({
     baseURL:
-        'https://codiblybe.onrender.com',
+    import.meta.env.VITE_API_URL,
 });
 
 export const getEnergyMix =
